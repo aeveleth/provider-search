@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+
+<head>
+    {% if organization %}
+        <title>Organization Information</title>
+    {% else %}
+        <title>Doctor Information</title>
+    {% endif %}
+</head>
+
+{% if organization %}
+    <h1><center>Organization Information</center></h1>
+{% else %}
+    <h1><center>Doctor Information</center></h1>
+{% endif %}
+
+{% if results_list %}
+    <p>{{ results_list|length }} Found</p>
+    <table width="70%" border=1 cellpadding="2" cellspacing="2" align="center">
+        <tr>
+            <th>NPI</th>
+            {% if organization %}
+            <th>Organization Name</th>
+            {% else %}
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Credential</th>
+            {% endif %}
+            <th>Taxonomy</th>
+            <!--<th>Description</th>-->
+            <th>Telephone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+        </tr>
+        {% for result in results_list %}
+        <tr>
+            <td>{{ result.npi }}</td>
+            {% if organization %}
+            <td>{{ result.organization_name }}</td>
+            {% else %}
+            <td>{{ result.first_name }}</td>
+            <td>{{ result.last_name }}</td>
+            <td>{{ result.credential_text }}</td>
+            {% endif %}
+            <td>{{ result.taxonomy_code }}</td>
+            <!--<td>{{ result.description }}</td>-->
+            <td>{{ result.phone_number }}</td>
+            <td>{{ result.address }}</td>
+            <td>{{ result.city }}</td>
+            <td>{{ result.state }}</td>
+            <td>{{ result.zip_code }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No results matched your search criteria. Retry your search.</p>
+{% endif %}

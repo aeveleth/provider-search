@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Provider Search</title>
+</head>
+<body>
+<h1><center>Provider Search</center></h1>
+    <table width="70%" border=0 cellpadding="5" cellspacing="1" align="center">
+        <tr align="center">
+            <th><u>Search For A Doctor</u></th>
+            <th><u>Search For An Organization</u></th>
+        </tr>
+        <tr><td colspan=2></td></tr>
+        <tr valign="top">
+            <td align="center">
+                <form action="" method="get">
+                    <b>First Name</b>
+                    <br>
+                    <input type="text" name="first_name">
+                    <br><br>
+                    <b>Last Name</b>
+                    <br>
+                    <input type="text" name="last_name">
+                    <br><br>
+                    <b>NPI</b>
+                    <br>
+                    <input type="text" name="individual_npi">
+                    <br><br>
+                    <b>Taxonomy</b>
+                    <br>
+                    <input type="text" name="individual_taxonomy">
+                    <br><br>
+                    <!--<b>Specialty</b>
+                    <br>
+                    <input type="text" name="individual_specialty">
+                    <br><br>-->
+                    <b>Zip Code</b>
+                    <br>
+                    <input type="text" name="individual_zip">
+                    <br><br>
+                    <b>State</b>
+                    <br>
+                    <select name="individual_state">
+                        <option value=""></option<>
+                        {% for state in states %}
+                        <option value="{{ state }}">{{ state }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                    <input type="submit" name="search_individual" value="Search">
+                </form>
+            </td>
+            <td align="center">
+                <form action="" method="get">
+                    <b>Organization Name</b>
+                    <br>
+                    <input type="text" name="organization_name">
+                    <br><br>
+                    <b>NPI</b>
+                    <br>
+                    <input type="text" name="organization_npi">
+                    <br><br>
+                    <b>Taxonomy</b>
+                    <br>
+                    <input type="text" name="organization_taxonomy">
+                    <br><br>
+                    <!--<b>Specialty</b>
+                    <br>
+                    <input type="text" name="organization_specialty">
+                    <br><br>-->
+                    <b>Zip Code</b>
+                    <br>
+                    <input type="text" name="organization_zip">
+                    <br><br>
+                    <b>State</b>
+                    <br>
+                    <select name="organization_state">
+                        <option value=""></option<>
+                        {% for state in states %}
+                        <option value="{{ state }}">{{ state }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                    <input type="submit" name="search_organization" value="Search">
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
